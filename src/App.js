@@ -1,5 +1,5 @@
 import "./App.css";
-import Alert from "./components/layout/Alert";
+import Alert from './components/layout/Alert'
 import {BrowserRouter as Router, Routes,Route } from 'react-router-dom'
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Navbar from "./components/layout/Navbar";
 import { GithubProvider } from './context/github/GithubContext'
 import { AlertProvider } from "./context/alert/AlertContext";
+import User from "./pages/User";
 // 1. Deal with third party API  
 // 2. Dive more into the context API intead of using useState.
 // 3. Explore useReducers pure fucntions used to manipulate parts of your state.
@@ -21,9 +22,11 @@ function App() {
      <div className="flex flex-col justify-between h-screen">
         <Navbar/>
         <main className="container mx-auto  px-3 pb-12">
+          <Alert/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/about' element={<About/>}/>
+            <Route path='/user/:login' element={<User/>}/>
             <Route path='/Notfound' element={<NotFound/>}/>
             <Route path='/*' element={<NotFound/>}/>
           </Routes>
